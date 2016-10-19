@@ -1,9 +1,9 @@
-@extends('master')
+@extends('dashlayout')
 
 @section('title')
     Admin
 @endsection
 
-@section('content')
+@section('frame')
     This is Admin
 @endsection

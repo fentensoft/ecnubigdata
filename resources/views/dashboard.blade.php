@@ -1,9 +1,9 @@
-@extends('master')
+@extends('dashlayout')
 
 @section('title')
     Dashboard
 @endsection
 
-@section('content')
-    This is dashboard
+@section('frame')
+
 @endsection
