@@ -16,13 +16,12 @@ class userController extends Controller
             'password' => 'required|min:4'
         ]);
 
-    	$email = $request["email"];
-    	$password = bcrypt($request["password"]);
-
     	$user = new user();
-    	$user->email = $email;
-    	$user->password = $password;
-        $user->isadmin = false;
+    	$user->email = $request["email"];
+    	$user->password = bcrypt($request["password"]);
+        $user->location = $request['location'];
+        $user->class = 1;
+        $user->realname = $request["realname"];
 
     	$user->save();
 
