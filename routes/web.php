@@ -22,7 +22,7 @@ Route::group(['middleware' => 'guest'], function() {
 Route::group(['middleware' => 'auth'], function() {
     Route::get('/logout', function() {
         Auth::logout();
-        return redirect()->route('home');
+        return redirect()->route('home')->withErrors(['message' => 'Successfully logged out.']);
     })->name('logout');
     Route::get('/dashboard', function() {
         return view('dashboard');
