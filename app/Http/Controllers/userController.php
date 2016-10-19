@@ -22,6 +22,7 @@ class userController extends Controller
     	$user = new user();
     	$user->email = $email;
     	$user->password = $password;
+        $user->isadmin = false;
 
     	$user->save();
 
@@ -32,7 +33,7 @@ class userController extends Controller
 
     public function postSignin(Request $request) {
         $this->validate($request, [
-            'email' => 'required|email|unique:users',
+            'email' => 'required|email',
             'password' => 'required|min:4'
         ]);
 

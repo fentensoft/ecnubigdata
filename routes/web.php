@@ -11,13 +11,13 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-})->name('home');
-
-Route::post('/signup', "userController@postSignup")->name("signup");
-
-Route::post('/signin', "userController@postSignin")->name("signin");
+Route::group(['middleware' => 'guest'], function() {
+    Route::get('/', function () {
+        return view('welcome');
+    })->name('home');
+    Route::post('/signup', "userController@postSignup")->name("signup");
+    Route::post('/signin', "userController@postSignin")->name("signin");
+});
 
 Route::group(['middleware' => 'auth'], function() {
     Route::get('/logout', function() {
@@ -27,4 +27,10 @@ Route::group(['middleware' => 'auth'], function() {
     Route::get('/dashboard', function() {
         return view('dashboard');
     })->name('dashboard');
+});
+
+Route::group(['middleware' => ['auth', 'admin']], function() {
+    Route::get('/admin', function() {
+        return view('admin');
+    })->name('admin');
 });
