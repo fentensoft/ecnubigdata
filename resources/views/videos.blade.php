@@ -17,5 +17,7 @@
             </div>
         </div>
         @endforeach
+
     </div>
+    {{$videos->links()}}
 @endsection
