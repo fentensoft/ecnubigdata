@@ -11,13 +11,12 @@
             <div class="thumbnail">
                 <a href="{{route('watchvid', $video->id)}}"><img src="http://img.youtube.com/vi/{{$video->vidid}}/sddefault.jpg" alt=""></a>
                 <div class="caption">
-                    <h4>{{$video->title}}</h4>
-                    <p>{{$video->description}}</p>
+                    <h5><b>{{$video->title}}</b></h5>
+                    <p>{{str_limit($video->description, $limit = 50, $end = '...')}}</p>
                 </div>
             </div>
         </div>
         @endforeach
-
     </div>
-    {{$videos->links()}}
+    <div align="center">{{$videos->links()}}</div>
 @endsection

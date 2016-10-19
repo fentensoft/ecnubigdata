@@ -28,7 +28,7 @@ Route::group(['middleware' => 'auth'], function() {
         return view('dashboard');
     })->name('dashboard');
     Route::get('/videos', function() {
-        $videos = App\Video::paginate(2);
+        $videos = App\Video::paginate(10);
         return view('videos', ['videos' => $videos]);
     })->name('videos');
     Route::get('/watchvid/{id}', function($id) {

@@ -12,7 +12,9 @@
                     <h3 class="panel-title">Your information</h3>
                 </div>
                 <div class="panel-body">
-                    Email: {{Auth::user()->email}}
+                    <p><h4>{{Auth::user()->realname}}</h4></p>
+                    <p>Email: {{Auth::user()->email}}</p>
+                    <p>Location: {{Auth::user()->location}}</p>
                 </div>
             </div>
         </div>

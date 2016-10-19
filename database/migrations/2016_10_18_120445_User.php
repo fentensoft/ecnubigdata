@@ -17,6 +17,8 @@ class User extends Migration
             $table->increments('id');
             $table->timestamps();
             $table->string('email');
+            $table->string('realname');
+            $table->string('location');
             $table->string('password');
             $table->integer('class');
             $table->rememberToken();
