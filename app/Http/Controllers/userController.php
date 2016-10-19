@@ -31,10 +31,15 @@ class userController extends Controller
     }
 
     public function postSignin(Request $request) {
+        $this->validate($request, [
+            'email' => 'required|email|unique:users',
+            'password' => 'required|min:4'
+        ]);
+
         if (\Auth::attempt(["email" => $request["email"], "password" => $request["password"]])) {
             return redirect()->route('dashboard');
         }
-        return redirect()->back()->withErrors(["error" => "Wrong email or password."]);
+        return redirect()->route('home')->withErrors(["error" => "Wrong email or password."]);
     }
 
 }
