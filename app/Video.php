@@ -6,7 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Video extends Model
 {
-    public function category() {
-        return $this->belongsTo('App\VideoCategory', 'id');
+    public function cate() {
+        return $this->belongsTo('App\VideoCategory', 'category');
+    }
+
+    public function pub() {
+        return $this->belongsTo('App\user', 'publisher');
     }
 }

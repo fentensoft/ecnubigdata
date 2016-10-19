@@ -2,7 +2,7 @@
 <html>
 <head>
 	<title>@yield('title')</title>
-	<link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
 </head>
 <body>
 	
@@ -36,9 +36,17 @@
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
-		@yield('content')
+@yield('content')
 
-	<script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
-	<script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+  $.ready(function() {
+    setTimeout(function () {
+      Messenger().post("a")
+    }, 1000);
+
+  });
+</script>
 </body>
 </html>

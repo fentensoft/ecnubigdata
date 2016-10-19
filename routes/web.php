@@ -28,13 +28,25 @@ Route::group(['middleware' => 'auth'], function() {
         return view('dashboard');
     })->name('dashboard');
     Route::get('/videos', function() {
-        $videos = App\Video::paginate(10);
+        if (Auth::user()->class <= 2)
+            $videos = App\Video::where('published', 1)->paginate(10);
+        else
+            $videos = App\Video::paginate(10);
         return view('videos', ['videos' => $videos]);
     })->name('videos');
     Route::get('/watchvid/{id}', function($id) {
-        $video = App\Video::where('id', $id);
-        return view('watchvid', ['video' => $video]);
+        $video = App\Video::where((Auth::user()->class <= 2)?([['id', $id],['published', 1]]):([['id', $id]]));
+        if ($video->count())
+            return view('watchvid', ['video' => $video]);
+        else
+            return redirect()->route('videos')->withErrors(['message' => 'Please present a valid id!']);
     })->name('watchvid');
+});
+
+Route::group(['middleware' => ['auth', 'admin:3']], function() {
+    Route::get('/submitvideo', function() {
+        return view('submitvideo');
+    })->name('submitvideo');
 });
 
 Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin:4']], function() {

@@ -20,6 +20,8 @@ class CreateVideosTable extends Migration
             $table->string('description');
             $table->integer('category');
             $table->string('vidid');
+            $table->boolean('published');
+            $table->integer('publisher');
         });
     }
 

@@ -12,12 +12,13 @@
             </div>
         </div>
         <div class="col-md-4">
-            <div class="panel panel-primary">
+            <div class="panel panel-warning">
                 <div class="panel-heading">
-                    <h3 class="panel-title">{{$video->first()->title}}</h3>
+                    <h3 class="panel-title">{{$video->first()->title}} <span class="label label-info">{{$video->first()->cate->catename}}</span></h3>
                 </div>
                 <div class="panel-body">
-                    {{$video->first()->description}}
+                    <p>{{$video->first()->description}}</p>
+                    <p>Publisher: {{$video->first()->pub->realname}}</p>
                 </div>
             </div>
         </div>
