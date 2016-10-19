@@ -11,6 +11,23 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // $this->call(UsersTableSeeder::class);
+        DB::table('users')->insert([
+            'email' => "admin@admin.com",
+            'realname' => 'Administrator',
+            'password' => bcrypt('admin'),
+            'location' => 'Local',
+            'class' => 4
+        ]);
+        DB::table('videos')->insert([
+            'title' => "Laravel 5.2 PHP Build a social network - Setup & Introduction",
+            'category' => 1,
+            'vidid' => '_dd4-HEPejU',
+            'description' => 'This is a laravel video.',
+            'published' => 1,
+            'publisher' => 1
+        ]);
+        DB::table('video_categories')->insert([
+            'catename' => "default"
+        ]);
     }
 }
