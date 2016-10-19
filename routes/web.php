@@ -29,9 +29,9 @@ Route::group(['middleware' => 'auth'], function() {
     })->name('dashboard');
     Route::get('/videos', function() {
         if (Auth::user()->class <= 2)
-            $videos = App\Video::where('published', 1)->paginate(3);
+            $videos = App\Video::where('published', 1)->paginate(10);
         else
-            $videos = App\Video::paginate(3);
+            $videos = App\Video::paginate(10);
         return view('videos', ['videos' => $videos]);
     })->name('videos');
     Route::get('/watchvid/{id}', function($id) {
@@ -44,13 +44,26 @@ Route::group(['middleware' => 'auth'], function() {
 });
 
 Route::group(['middleware' => ['auth', 'admin:2']], function() {
+    Route::get('/submitvideo', function() {
+        return view('submitvideo');
+    })->name('submitvideo');
     Route::post('/postsubmitvideo', "videoController@submitVideo")->name('postsubmitvideo');
 });
 
 Route::group(['middleware' => ['auth', 'admin:3']], function() {
-    Route::get('/submitvideo', function() {
-        return view('submitvideo');
-    })->name('submitvideo');
+    Route::get('/videos/{tag}', function($tag) {
+        switch ($tag) {
+            case "Unpublished": $videos = App\Video::where('published', 0)->paginate(10);break;
+            case "Published": $videos = App\Video::where('published', 1)->paginate(10);break;
+            default:
+                $cate = App\VideoCategory::where('catename', $tag);
+                if ($cate->count())
+                    $videos = App\Video::where('category', $cate->first()->id)->paginate(10);
+                else
+                    return redirect()->route('videos');
+        }
+        return view('videos', ['videos' => $videos, 'tag' => $tag]);
+    })->name('videos_tag');
 });
 
 Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin:4']], function() {
