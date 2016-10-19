@@ -27,10 +27,17 @@ Route::group(['middleware' => 'auth'], function() {
     Route::get('/dashboard', function() {
         return view('dashboard');
     })->name('dashboard');
+    Route::get('/videos', function() {
+        return view('videos', ['videos' => App\Video::all()]);
+    })->name('videos');
+    Route::get('/watchvid/{id}', function($id) {
+        $video = App\Video::where('id', $id);
+        return view('watchvid', ['video' => $video]);
+    })->name('watchvid');
 });
 
-Route::group(['middleware' => ['auth', 'admin']], function() {
-    Route::get('/admin', function() {
+Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function() {
+    Route::get('/', function() {
         return view('admin');
     })->name('admin');
 });

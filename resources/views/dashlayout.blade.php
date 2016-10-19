@@ -9,7 +9,7 @@
                         <small><b>DASHBOARD</b></small></h4>
                     <ul class="nav nav-pills nav-stacked">
                         <li @if(Route::is('dashboard'))class="active"@endif><a href="{{route('dashboard')}}"><i class="glyphicon glyphicon-info-sign"></i> Information</a></li>
-                        <li @if(Route::is('videos'))class="active"@endif><a href="#"><i class="glyphicon glyphicon-play-circle"></i> Videos</a></li>
+                        <li @if(Route::is('videos'))class="active"@endif><a href="{{route('videos')}}"><i class="glyphicon glyphicon-play-circle"></i> Videos</a></li>
                         <li class="nav-divider"></li>
                         @if(Auth::user()->isadmin)
                             <li><a href="{{route('admin')}}"><i class="glyphicon glyphicon-cog"></i> Admin dashboard</a></li>
