@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class User extends Migration
+class CreateVideosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,13 @@ class User extends Migration
      */
     public function up()
     {
-        Schema::create('users', function(Blueprint $table) {
+        Schema::create('videos', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
-            $table->string('email');
-            $table->string('password');
-            $table->integer('class');
-            $table->rememberToken();
+            $table->string('title');
+            $table->string('description');
+            $table->integer('category');
+            $table->string('vidid');
         });
     }
 
@@ -30,6 +30,6 @@ class User extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('videos');
     }
 }

@@ -36,7 +36,7 @@ Route::group(['middleware' => 'auth'], function() {
     })->name('watchvid');
 });
 
-Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function() {
+Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin:4']], function() {
     Route::get('/', function() {
         return view('admin');
     })->name('admin');
