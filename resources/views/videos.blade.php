@@ -5,28 +5,33 @@
 @endsection
 
 @section('frame')
-    <div class="row">
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th width="25%">Thumbnails</th>
+            <th width="25%">Title</th>
+            <th width="50%">Description</th>
+        </tr>
+        </thead>
+        <tbody>
         @foreach($videos as $video)
-        <div class="col-md-4">
-            <div class="thumbnail">
-                <a href="{{route('watchvid', $video->id)}}"><img src="http://img.youtube.com/vi/{{$video->vidid}}/sddefault.jpg" alt=""></a>
-                <div class="caption">
-                    <h5><b>{{$video->title}}</b></h5>
-                    <p>
-                        <span class="label label-info">{{$video->cate->catename}}</span>
-                        @if(Auth::user()->class >= 3)
-                            @if($video->published)
-                                <span class="label label-success">Published</span>
-                            @else
-                                <span class="label label-danger">Unpublished</span>
-                            @endif
+        <tr>
+            <td><div class="thumbnail"><a href="{{route('watchvid', $video->id)}}"><img src="http://img.youtube.com/vi/{{$video->vidid}}/sddefault.jpg" alt=""></a></div></td>
+            <td>{{$video->title}}
+                <p>
+                    <span class="label label-info">{{$video->cate->catename}}</span>
+                    @if(Auth::user()->class >= 3)
+                        @if($video->published)
+                            <span class="label label-success">Published</span>
+                        @else
+                            <span class="label label-danger">Unpublished</span>
                         @endif
-                    </p>
-                    <p>{{str_limit($video->description, $limit = 45, $end = '...')}}</p>
-                </div>
-            </div>
-        </div>
+                    @endif
+                </p></td>
+            <td>{{$video->description}}</td>
+        </tr>
         @endforeach
-    </div>
+        </tbody>
+    </table>
     <div align="center">{{$videos->links()}}</div>
 @endsection
