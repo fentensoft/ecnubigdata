@@ -68,6 +68,12 @@ Route::group(['middleware' => ['auth', 'admin:3']], function() {
         return view('videos', ['videos' => $videos, 'tag' => $tag]);
     })->name('videos_tag');
     Route::post('/editvideo', "videoController@editVideo")->name('editvideo');
+    Route::get('/editcategory', function() {
+        return view('editcategory');
+    })->name("editcategory");
+    Route::post('/posteditcategory', "categoryController@editCategory")->name('posteditcategory');
+    Route::post('/postdelcategory', "categoryController@deleteCategory")->name('postdelcategory');
+    Route::post('/postaddcategory', "categoryController@addCategory")->name('postaddcategory');
 });
 
 Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin:4']], function() {

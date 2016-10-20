@@ -48,6 +48,7 @@
 <script src="//cdn.bootcss.com/bootstrap-checkbox/1.4.0/bootstrap-checkbox.min.js"></script>
 <script src="//cdn.bootcss.com/pnotify/3.0.0/pnotify.min.js"></script>
 <script src="//cdn.bootcss.com/pnotify/3.0.0/pnotify.buttons.min.js"></script>
+<script src="//cdn.bootcss.com/bootbox.js/4.4.0/bootbox.min.js"></script>
 <script type="text/javascript">
   $(document).ready(function() {
     $(".selectpicker").selectpicker();

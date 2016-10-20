@@ -70,10 +70,19 @@
                     <input type="hidden" name="id" value="{{$video->first()->id}}">
                     <button type="submit" class="btn btn-primary">Submit</button>
                     @if(Auth::user()->class == 4 || !$video->first()->published)
-                    <button type="button" class="btn btn-danger" onclick="window.location = '{{route('deletevideo', $video->first()->id)}}';">Delete</button>
+                    <button type="button" class="btn btn-danger" onclick="del();">Delete</button>
                     @endif
                 </form>
             </div>
         </div>
+        <script type="text/javascript">
+            function del() {
+                bootbox.confirm('Do you really want to delete this video?', function(result) {
+                    if (result) {
+                        window.location = '{{route('deletevideo', $video->first()->id)}}';
+                    }
+                });
+            }
+        </script>
     @endif
 @endsection
