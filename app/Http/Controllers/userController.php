@@ -41,7 +41,7 @@ class userController extends Controller
         if (\Auth::attempt(["email" => $request["email"], "password" => $request["password"]])) {
             return redirect()->route('dashboard');
         }
-        return redirect()->route('home')->withErrors(["notify.danger" => "Wrong email or password."]);
+        return redirect()->route('home')->withErrors(["notify.error" => "Login|Wrong email or password."]);
     }
 
 }

@@ -8,30 +8,34 @@ Bigdata
     <div class="container">
         <div class="row">
             <div class="col-md-6">
-                <div class="panel panel-default">
+                <div class="panel panel-primary">
                     <div class="panel-heading">
                         <h3 class="panel-title">Sign Up</h3>
                     </div>
                     <div class="panel-body">
                         <form action="{{route("signup")}}" method="post" id="signup">
                             {{csrf_field()}}
-                            <div class="form-group">
-                                <label for="email">Your E-Mail</label>
-                                <input class="form-control" type="text" name="email" id="email"></input>
+                            <div class="input-group">
+                                <input class="form-control" type="text" name="email" id="email" placeholder="Enter your email"></input>
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
                             </div>
-                            <div class="form-group">
-                                <label for="password">Your password</label>
-                                <input class="form-control" type="password" name="password" id="password"></input>
+                            <p></p>
+                            <div class="input-group">
+                                <input class="form-control" type="password" name="password" id="password" placeholder="Enter your password"></input>
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-asterisk"></i></span>
                             </div>
-                            <div class="form-group">
-                                <label for="realname">Your Real Name</label>
-                                <input class="form-control" type="text" name="realname" id="realname"></input>
+                            <p></p>
+                            <div class="input-group">
+                                <input class="form-control" type="text" name="realname" id="realname" placeholder="Enter your name"></input>
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
                             </div>
-                            <div class="form-group">
-                                <label for="location">Your Location</label>
-                                <input class="form-control" type="text" name="location" id="location"></input>
+                            <p></p>
+                            <div class="input-group">
+                                <input class="form-control" type="text" name="location" id="location" placeholder="Enter your location"></input>
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-map-marker"></i></span>
                             </div>
-                            <button type="submit" class="btn btn-primary">Register</button>
+                            <p></p>
+                            <div align="center"><button type="submit" class="btn btn-primary">Register</button></div>
                         </form>
                     </div>
                 </div>
@@ -44,15 +48,17 @@ Bigdata
                     <div class="panel-body">
                         <form action="{{route("signin")}}" method="post" id="signin">
                             {{csrf_field()}}
-                            <div class="form-group">
-                                <label for="email">Your E-Mail</label>
-                                <input class="form-control" type="text" name="email" id="email"></input>
+                            <div class="input-group">
+                                <input class="form-control" type="text" name="email" id="email" placeholder="Enter your email"></input>
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
                             </div>
-                            <div class="form-group">
-                                <label for="password">Your password</label>
-                                <input class="form-control" type="password" name="password" id="password"></input>
+                            <p></p>
+                            <div class="input-group">
+                                <input class="form-control" type="password" name="password" id="password" placeholder="Enter your password"></input>
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-asterisk"></i></span>
                             </div>
-                            <button type="submit" class="btn btn-primary">Login</button>
+                            <p></p>
+                            <div align="center"><button type="submit" class="btn btn-success">Login</button></div>
                         </form>
                     </div>
                 </div>

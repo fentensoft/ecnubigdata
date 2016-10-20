@@ -6,6 +6,7 @@
   <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap-select/2.0.0-beta1/css/bootstrap-select.min.css">
   <link rel="stylesheet" href="//cdn.bootcss.com/awesome-bootstrap-checkbox/1.0.0-alpha.4/awesome-bootstrap-checkbox.min.css">
   <link rel="stylesheet" href="//cdn.bootcss.com/pnotify/3.0.0/pnotify.min.css">
+  <link rel="stylesheet" href="//cdn.bootcss.com/pnotify/3.0.0/pnotify.buttons.min.css">
 </head>
 <body>
 	
@@ -46,6 +47,7 @@
 <script src="//cdn.bootcss.com/bootstrap-select/2.0.0-beta1/js/bootstrap-select.min.js"></script>
 <script src="//cdn.bootcss.com/bootstrap-checkbox/1.4.0/bootstrap-checkbox.min.js"></script>
 <script src="//cdn.bootcss.com/pnotify/3.0.0/pnotify.min.js"></script>
+<script src="//cdn.bootcss.com/pnotify/3.0.0/pnotify.buttons.min.js"></script>
 <script type="text/javascript">
   $(document).ready(function() {
     $(".selectpicker").selectpicker();
@@ -53,11 +55,16 @@
     PNotify.prototype.options.styling = "bootstrap3";
     @if($errors->any())
       @foreach($errors->get('notify.*') as $errortype => $error)
-            new PNotify({
-              title: 'Notification',
-              text: '{{$error[0]}}',
-              type: '{{explode('.', $errortype)[1]}}'
-            });
+    new PNotify({
+      title: '{{explode('|', $error[0])[0]}}',
+      text: '{{explode('|', $error[0])[1]}}',
+      type: '{{explode('.', $errortype)[1]}}',
+      addclass: 'translucent',
+      buttons: {
+        sticker: false,
+        close: true
+      }
+    });
       @endforeach
     @endif
   });

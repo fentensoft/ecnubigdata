@@ -44,10 +44,8 @@ class videoController extends Controller
         $video->category = $request['category'];
         $video->published = ($request['published'] == 'on')?1:0;
 
-        $msg = 'Submit failed.';
         if ($video->update())
-            $msg = 'Success.';
-
-        return redirect()->back()->withErrors(['notify.info' => $msg]);
+            return redirect()->back()->withErrors(['notify.info' => 'Edit video|Success.']);
+        return redirect()->back()->withErrors(['notify.error' => 'Edit video|Failed.']);
     }
 }
