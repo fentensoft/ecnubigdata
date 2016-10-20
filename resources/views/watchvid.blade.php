@@ -69,9 +69,9 @@
                     </div>
                     <input type="hidden" name="id" value="{{$video->first()->id}}">
                     <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="button" class="btn btn-danger" onclick="window.location = '{{route('deletevideo', $video->first()->id)}}';">Delete</button>
                 </form>
             </div>
         </div>
-
     @endif
 @endsection

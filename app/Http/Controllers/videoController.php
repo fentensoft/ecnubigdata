@@ -48,4 +48,11 @@ class videoController extends Controller
             return redirect()->back()->withErrors(['notify.info' => 'Edit video|Success.']);
         return redirect()->back()->withErrors(['notify.error' => 'Edit video|Failed.']);
     }
+
+    public function deleteVideo($id) {
+        if (Video::destroy($id))
+            return redirect()->route('videos')->withErrors(['notify.info' => 'Delete Video|Successfully deleted.']);
+        else
+            return redirect()->route('videos')->withErrors(['notify.error' => 'Delete Video|Failed.']);
+    }
 }

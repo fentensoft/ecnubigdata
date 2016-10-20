@@ -74,4 +74,5 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin:4']], functio
     Route::get('/', function() {
         return view('admin');
     })->name('admin');
+    Route::get('/deletevideo/{id}', "videoController@deleteVideo")->name('deletevideo');
 });
