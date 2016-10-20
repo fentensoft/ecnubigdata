@@ -35,6 +35,7 @@
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-map-marker"></i></span>
                             </div>
                             <p></p>
+                            <p align="center"><a href="{{route("home")}}">I already have an account.</a></p>
                             <div align="center"><button type="submit" class="btn btn-primary">Register</button></div>
                         </form>
                     </div>

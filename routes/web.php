@@ -25,7 +25,7 @@ Route::group(['middleware' => 'guest'], function() {
 Route::group(['middleware' => 'auth'], function() {
     Route::get('/logout', function() {
         Auth::logout();
-        return redirect()->route('home')->withErrors(['message' => 'Successfully logged out.']);
+        return redirect()->route('home')->withErrors(['notify.info' => 'Logout|Successfully logged out.']);
     })->name('logout');
     Route::get('/dashboard', function() {
         return view('dashboard');
@@ -42,7 +42,7 @@ Route::group(['middleware' => 'auth'], function() {
         if ($video->count())
             return view('watchvid', ['video' => $video]);
         else
-            return redirect()->route('videos')->withErrors(['message' => 'Please present a valid id!']);
+            return redirect()->route('videos')->withErrors(['notify.error' => 'Watch video|Please present a valid id!']);
     })->name('watchvid');
 });
 
