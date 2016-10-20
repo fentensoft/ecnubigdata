@@ -66,7 +66,14 @@
     @endforeach
     @foreach($errors->toArray() as $errortype => $error)
     @if(!strstr($errortype, "notify."))
-      $('input[name="{{$errortype}}"]').attr("placeholder", "{{$error[0]}}");
+    new PNotify({
+      title: 'Input error',
+      text: '{{$error[0]}}',
+      type: 'error',
+      buttons: {
+        sticker: false,
+      }
+    });
     @endif
     @endforeach
     @endif
