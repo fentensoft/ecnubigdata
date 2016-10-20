@@ -6,13 +6,6 @@ Bigdata
 
 @section('content')
     <div class="container">
-    @if($errors->any())
-        @foreach($errors->all() as $error)
-            <div class="alert alert-info" role="alert">{{$error}}</div>
-        @endforeach
-    @endif
-    </div>
-    <div class="container">
         <div class="row">
             <div class="col-md-6">
                 <div class="panel panel-default">

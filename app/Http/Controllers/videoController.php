@@ -29,7 +29,7 @@ class videoController extends Controller
         if ($video->save())
             $msg = 'Success.';
 
-        return redirect()->route('submitvideo')->withErrors(['message' => $msg]);
+        return redirect()->route('submitvideo')->withErrors(['notify.info' => $msg]);
     }
 
     public function editVideo(Request $request) {
@@ -48,6 +48,6 @@ class videoController extends Controller
         if ($video->update())
             $msg = 'Success.';
 
-        return redirect()->back()->withErrors(['message' => $msg]);
+        return redirect()->back()->withErrors(['notify.info' => $msg]);
     }
 }
