@@ -15,8 +15,11 @@ Route::group(['middleware' => 'guest'], function() {
     Route::get('/', function () {
         return view('welcome');
     })->name('home');
-    Route::post('/signup', "userController@postSignup")->name("signup");
-    Route::post('/signin', "userController@postSignin")->name("signin");
+    Route::post('/postsignup', "userController@postSignup")->name("postsignup");
+    Route::post('/postsignin', "userController@postSignin")->name("postsignin");
+    Route::get('/signup', function() {
+        return view('signup');
+    })->name('signup');
 });
 
 Route::group(['middleware' => 'auth'], function() {
