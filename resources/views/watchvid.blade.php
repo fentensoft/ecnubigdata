@@ -69,7 +69,9 @@
                     </div>
                     <input type="hidden" name="id" value="{{$video->first()->id}}">
                     <button type="submit" class="btn btn-primary">Submit</button>
+                    @if(Auth::user()->class == 4 || !$video->first()->published)
                     <button type="button" class="btn btn-danger" onclick="window.location = '{{route('deletevideo', $video->first()->id)}}';">Delete</button>
+                    @endif
                 </form>
             </div>
         </div>
