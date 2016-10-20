@@ -54,18 +54,21 @@
     $(".checkboxpicker").checkboxpicker();
     PNotify.prototype.options.styling = "bootstrap3";
     @if($errors->any())
-      @foreach($errors->get('notify.*') as $errortype => $error)
+    @foreach($errors->get('notify.*') as $errortype => $error)
     new PNotify({
       title: '{{explode('|', $error[0])[0]}}',
       text: '{{explode('|', $error[0])[1]}}',
       type: '{{explode('.', $errortype)[1]}}',
-      addclass: 'translucent',
       buttons: {
         sticker: false,
-        close: true
       }
     });
-      @endforeach
+    @endforeach
+    @foreach($errors->toArray() as $errortype => $error)
+    @if(!strstr($errortype, "notify."))
+      $('input[name="{{$errortype}}"]').attr("placeholder", "{{$error[0]}}");
+    @endif
+    @endforeach
     @endif
   });
 </script>
