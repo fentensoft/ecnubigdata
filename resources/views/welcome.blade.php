@@ -20,7 +20,7 @@ Bigdata
                         <h3 class="panel-title">Sign Up</h3>
                     </div>
                     <div class="panel-body">
-                        <form action="{{route("signup")}}" method="post">
+                        <form action="{{route("signup")}}" method="post" id="signup">
                             {{csrf_field()}}
                             <div class="form-group">
                                 <label for="email">Your E-Mail</label>
@@ -49,7 +49,7 @@ Bigdata
                         <h3 class="panel-title">Sign In</h3>
                     </div>
                     <div class="panel-body">
-                        <form action="{{route("signin")}}" method="post">
+                        <form action="{{route("signin")}}" method="post" id="signin">
                             {{csrf_field()}}
                             <div class="form-group">
                                 <label for="email">Your E-Mail</label>

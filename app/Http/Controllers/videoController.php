@@ -31,4 +31,23 @@ class videoController extends Controller
 
         return redirect()->route('submitvideo')->withErrors(['message' => $msg]);
     }
+
+    public function editVideo(Request $request) {
+        $this->validate($request, [
+            'title' => 'required|max:64',
+            'description' => 'required|max:254',
+        ]);
+
+        $video = Video::find($request['id']);
+        $video->title = $request['title'];
+        $video->description = $request['description'];
+        $video->category = $request['category'];
+        $video->published = ($request['published'] == 'on')?1:0;
+
+        $msg = 'Submit failed.';
+        if ($video->update())
+            $msg = 'Success.';
+
+        return redirect()->back()->withErrors(['message' => $msg]);
+    }
 }

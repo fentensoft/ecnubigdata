@@ -3,6 +3,8 @@
 <head>
 	<title>@yield('title')</title>
 	<link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap-select/2.0.0-beta1/css/bootstrap-select.min.css">
+  <link rel="stylesheet" href="//cdn.bootcss.com/awesome-bootstrap-checkbox/1.0.0-alpha.4/awesome-bootstrap-checkbox.min.css">
 </head>
 <body>
 	
@@ -40,12 +42,12 @@
 
 <script src="//cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//cdn.bootcss.com/bootstrap-select/2.0.0-beta1/js/bootstrap-select.min.js"></script>
+<script src="//cdn.bootcss.com/bootstrap-checkbox/1.4.0/bootstrap-checkbox.min.js"></script>
 <script type="text/javascript">
-  $.ready(function() {
-    setTimeout(function () {
-      Messenger().post("a")
-    }, 1000);
-
+  $(document).ready(function() {
+    $(".selectpicker").selectpicker();
+    $(".checkboxpicker").checkboxpicker();
   });
 </script>
 </body>

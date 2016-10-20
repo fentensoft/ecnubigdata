@@ -64,6 +64,7 @@ Route::group(['middleware' => ['auth', 'admin:3']], function() {
         }
         return view('videos', ['videos' => $videos, 'tag' => $tag]);
     })->name('videos_tag');
+    Route::post('/editvideo', "videoController@editVideo")->name('editvideo');
 });
 
 Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin:4']], function() {

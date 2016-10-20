@@ -24,7 +24,7 @@
                         <label for="vidid">Video ID</label>
                         <input class="form-control" type="text" name="vidid" id="vidid"></input>
                     </div>
-                    <button type="submit" class="btn btn-primary">Register</button>
+                    <button type="submit" class="btn btn-primary">Submit</button>
                 </form>
             </div>
         </div>
