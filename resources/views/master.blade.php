@@ -41,6 +41,12 @@
   </div><!-- /.container-fluid -->
 </nav>
 @yield('content')
+<footer style="position: absolute; bottom: 0; background-color: #f5f5f5; height: 60px; width: 100%;">
+  <div class="container">
+    <p></p>
+    <p align="center" class="text-muted">@Bigdata</p>
+  </div>
+</footer>
 
 <script src="//cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
