@@ -21,7 +21,7 @@ class categoryController extends Controller
         $cate->catename = $request['catename'];
         if ($cate->save())
             return response()->json(['text' => 'Successfully added.', 'type' => 'info']);
-        return response()->json(['text' => 'Failed.', 'type' => 'error']);
+            return response()->json(['text' => 'Failed.', 'type' => 'error']);
     }
 
     public function editCategory(Request $request) {
