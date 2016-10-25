@@ -8,5 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class user extends Model implements Authenticatable
 {
+    use HasApiTokens;
     use \Illuminate\Auth\Authenticatable;
 }
