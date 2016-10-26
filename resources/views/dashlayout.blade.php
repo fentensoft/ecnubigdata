@@ -18,6 +18,7 @@
                         @if(Auth::user()->class == 4)
                             <li><a href="{{route('admin')}}"><i class="glyphicon glyphicon-cog"></i> Admin</a></li>
                         @endif
+                        <li><a href="http://test.lymtony.cn:8000/" target="_blank"><i class="glyphicon glyphicon-record"></i> Jupyter</a></li>
                         <li><a href="{{route('logout')}}"><i class="glyphicon glyphicon-log-out"></i> Logout</a></li>
                     </ul>
                 </div>
