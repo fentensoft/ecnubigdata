@@ -14,5 +14,5 @@ use Illuminate\Http\Request;
 */
 
 Route::get('/user', function (Request $request) {
-    return Auth::guard('api')->user()->realname;
+    return Auth::guard('api')->user()->username;
 })->middleware('auth:api');

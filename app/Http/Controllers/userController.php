@@ -14,7 +14,7 @@ class userController extends Controller
         $this->validate($request, [
             'email' => 'required|email|unique:users|max:32',
             'password' => 'required|min:4|max:16',
-            'realname' => 'required|max:32',
+            'username' => 'required|alpha_dash|max:32',
             'location' => 'required|max:32'
         ]);
 
@@ -23,7 +23,7 @@ class userController extends Controller
     	$user->password = bcrypt($request["password"]);
         $user->location = $request['location'];
         $user->class = 1;
-        $user->realname = $request["realname"];
+        $user->username = $request["username"];
 
     	$user->save();
 

@@ -20,7 +20,7 @@
                 </div>
                 <div class="panel-body">
                     <p>{{$video->first()->description}}</p>
-                    <p>Publisher: {{$video->first()->pub->realname}}</p>
+                    <p>Publisher: {{$video->first()->pub->username}}</p>
                 </div>
             </div>
         </div>
@@ -53,7 +53,7 @@
                         <p class="form-control-static"><b>Video ID</b> {{$video->first()->vidid}}</p>
                     </div>
                     <div class="form-group">
-                        <p class="form-control-static"><b>Publisher</b> {{$video->first()->pub->realname}}</p>
+                        <p class="form-control-static"><b>Publisher</b> {{$video->first()->pub->username}}</p>
                     </div>
                     <div class="form-group">
                         <label for="title" style="padding-right:10px;">Category</label>

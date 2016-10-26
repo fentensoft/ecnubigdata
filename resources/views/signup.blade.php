@@ -26,7 +26,7 @@
                             </div>
                             <p></p>
                             <div class="input-group">
-                                <input class="form-control" type="text" name="realname" id="realname" placeholder="Enter your name"></input>
+                                <input class="form-control" type="text" name="username" id="username" placeholder="Enter your username"></input>
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
                             </div>
                             <p></p>
