@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use GuzzleHttp\Client;
 
 use App\Http\Requests;
 
@@ -27,7 +28,11 @@ class userController extends Controller
 
     	$user->save();
 
-        \Auth::login($user);
+        //Add jupyterhub user
+        $client = new Client();
+        $request = new \GuzzleHttp\Psr7\Request('POST', config('app.jupyterhub_host') . "/hub/api/users/" . $request["username"], ['Authorization' => 'token ' . config('app.jupyterhub_token')]);
+        if ($client->send($request)->getStatusCode() == 201)
+            \Auth::login($user);
 
     	return redirect()->route('dashboard');
     }
@@ -39,7 +44,7 @@ class userController extends Controller
         ]);
 
         if (\Auth::attempt(["email" => $request["email"], "password" => $request["password"]])) {
-            return redirect()->route('dashboard');
+            return redirect()->intended(route('dashboard'));
         }
         return redirect()->route('home')->withErrors(["notify.error" => "Login|Wrong email or password."]);
     }

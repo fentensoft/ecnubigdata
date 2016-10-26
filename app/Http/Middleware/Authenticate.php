@@ -17,7 +17,7 @@ class Authenticate
     public function handle($request, Closure $next, $guard = null)
     {
         if (Auth::guard($guard)->guest()) {
-            return redirect()->route('home')->withErrors(["message" => "Please login"]);
+            return redirect()->guest(route('home'))->withErrors(["message" => "Please login"]);
         }
 
         return $next($request);
