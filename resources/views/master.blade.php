@@ -84,6 +84,7 @@
     @endif
     @endforeach
     @endif
+@yield("ready")
   });
 </script>
 </body>

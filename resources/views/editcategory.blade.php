@@ -63,29 +63,31 @@
         }
         function edit(id, val) {
             bootbox.prompt({size:'small', title:'Edit category name', value: val, callback:function(result) {
-                if (result.length > 32) {
-                    new PNotify({
-                        title: 'Input error',
-                        text: 'Category name should not be greater than 32 characters.',
-                        type: 'error',
-                        buttons: {
-                            sticker: false,
-                        }
-                    });
-                } else {
-                    $.post('{{route('posteditcategory')}}', {'_token': '{{csrf_token()}}', 'id': id, 'catename': result}, function(data) {
+                if (result) {
+                    if (result.length > 32) {
                         new PNotify({
-                            title: 'Edit category',
-                            text: data.text,
-                            type: data.type,
+                            title: 'Input error',
+                            text: 'Category name should not be greater than 32 characters.',
+                            type: 'error',
                             buttons: {
                                 sticker: false,
                             }
                         });
-                        if (data.type == 'info') {
-                            $('td#' + id).text(result);
-                        }
-                    });
+                    } else {
+                        $.post('{{route('posteditcategory')}}', {'_token': '{{csrf_token()}}', 'id': id, 'catename': result}, function(data) {
+                            new PNotify({
+                                title: 'Edit category',
+                                text: data.text,
+                                type: data.type,
+                                buttons: {
+                                    sticker: false,
+                                }
+                            });
+                            if (data.type == 'info') {
+                                $('td#' + id).text(result);
+                            }
+                        });
+                    }
                 }
             }});
         }
