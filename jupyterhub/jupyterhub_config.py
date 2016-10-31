@@ -17,5 +17,5 @@ admin.add("administrator")
 #These configs need to be changed
 #---------------------------------------------------------------
 c.JupyterHub.api_tokens = {"admin_token_here": 'administrator'}
-c.DockerSpawner.container_image = "fentensoft/jupyterhub:1.3"
 #---------------------------------------------------------------
+c.DockerSpawner.container_image = "registry.cn-hangzhou.aliyuncs.com/fentensoft/jupyterhub:1.3"
