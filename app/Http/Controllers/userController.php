@@ -30,7 +30,7 @@ class userController extends Controller
 
         //Add jupyterhub user
         $client = new Client();
-        $request = new \GuzzleHttp\Psr7\Request('POST', config('app.jupyterhub_host') . "/hub/api/users/" . $request["username"], ['Authorization' => 'token ' . config('app.jupyterhub_token')]);
+        $request = new \GuzzleHttp\Psr7\Request('POST', config('app.jupyterhub_api_host') . "/hub/api/users/" . $request["username"], ['Authorization' => 'token ' . config('app.jupyterhub_token')]);
         if ($client->send($request)->getStatusCode() == 201)
             \Auth::login($user);
 

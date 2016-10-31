@@ -229,7 +229,8 @@ return [
 
     ],
 
-    'jupyterhub_host' => 'test.lymtony.cn:8081',
+    'jupyterhub_host' => 'localhost:8888',
+    'jupyterhub_api_host' => 'localhost:8889',
     'jupyterhub_token' => '8421be09c0494f1284153a37963c7d90',
 
 ];
