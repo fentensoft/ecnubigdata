@@ -28,7 +28,7 @@ class userController extends Controller
 
     	$user->save();
 
-        exec("/usr/bin/docker -H " . getenv("DOCKER_HOST") . " exec rstudio /usr/local/bin/add-user " . $request["username"] . " " . $request["password"], $res, $ret);
+        exec("/usr/bin/docker -H " . getenv("DOCKER_HOST") . " exec rstudio sh add-user " . $request["username"] . " " . $request["password"], $res, $ret);
         //Add jupyterhub user
         $client = new Client();
         $request = new \GuzzleHttp\Psr7\Request('POST', config('app.jupyterhub_host') . "/hub/api/users/" . $request["username"], ['Authorization' => 'token ' . config('app.jupyterhub_token')]);
