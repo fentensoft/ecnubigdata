@@ -28,14 +28,13 @@ class userController extends Controller
 
     	$user->save();
 
+        exec("/usr/bin/docker -H " . getenv("DOCKER_HOST") . " exec rstudio /usr/local/bin/add-user " . $request["username"] . " " . $request["password"], $res, $ret);
         //Add jupyterhub user
         $client = new Client();
         $request = new \GuzzleHttp\Psr7\Request('POST', config('app.jupyterhub_host') . "/hub/api/users/" . $request["username"], ['Authorization' => 'token ' . config('app.jupyterhub_token')]);
-        if ($client->send($request)->getStatusCode() == 201) {
+        if ($client->send($request)->getStatusCode() == 201 && $ret == 0) {
             //Add RStudio user
-            exec("/usr/bin/docker -H " . getenv("DOCKER_HOST") . " exec rstudio /usr/local/bin/add-user " . $request["username"] . " " . $request["password"], $res, $ret);
-            if ($ret == 0)
-                \Auth::login($user);
+            \Auth::login($user);
         }
 
     	return redirect()->route('dashboard');
