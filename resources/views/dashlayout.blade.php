@@ -19,6 +19,7 @@
                             <li><a href="{{route('admin')}}"><i class="glyphicon glyphicon-cog"></i> Admin</a></li>
                         @endif
                         <li><a href="http://{{config('app.jupyterhub_host')}}/" target="_blank"><i class="glyphicon glyphicon-record"></i> Jupyter</a></li>
+                        <li><a href="http://{{config('app.rstudio_host')}}/" target="_blank"><i class="glyphicon glyphicon-record"></i> Rstudio</a></li>
                         <li><a href="{{route('logout')}}"><i class="glyphicon glyphicon-log-out"></i> Logout</a></li>
                     </ul>
                 </div>

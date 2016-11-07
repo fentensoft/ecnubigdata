@@ -231,5 +231,6 @@ return [
 
     'jupyterhub_host' => 'localhost:8888',
     'jupyterhub_token' => '8421be09c0494f1284153a37963c7d90',
+    'rstudio_host' => '222.204.243.127:8787',
 
 ];
