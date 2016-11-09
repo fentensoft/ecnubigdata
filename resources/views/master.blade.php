@@ -41,7 +41,7 @@
   </div><!-- /.container-fluid -->
 </nav>
 @yield('content')
-<footer style="position: absolute; bottom: 0; background-color: #f5f5f5; height: 60px; width: 100%;">
+<footer style="background-color: #f5f5f5; height: 60px; width: 100%;">
   <div class="container">
     <p></p>
     <p align="center" class="text-muted">@Bigdata</p>
