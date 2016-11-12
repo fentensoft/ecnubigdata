@@ -1,4 +1,4 @@
-@extends('dashlayout')
+@extends('dashboard.dashlayout')
 
 @section('title')
     Admin
