@@ -23,6 +23,11 @@ Route::group(['middleware' => 'guest'], function() {
     Route::get('/signin', function() {
         return view('signin');
     })->name('signin');
+    Route::get('/test', function() {
+        $client = new GuzzleHttp\Client();
+        $res = $client->get('http://' . getenv('DOCKER_HOST') . '/containers/rstudio/stats');
+        return $res->getBody();
+    });
 });
 
 Route::group(['middleware' => 'auth'], function() {
