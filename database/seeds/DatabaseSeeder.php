@@ -16,6 +16,8 @@ class DatabaseSeeder extends Seeder
             'username' => 'administrator',
             'password' => bcrypt('admin'),
             'location' => 'Local',
+            'rstudio' => true,
+            'jupyter' => true,
             'class' => 4
         ]);
         DB::table('videos')->insert([

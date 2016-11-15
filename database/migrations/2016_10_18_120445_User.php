@@ -21,6 +21,8 @@ class User extends Migration
             $table->string('location');
             $table->string('password');
             $table->integer('class');
+            $table->boolean('rstudio');
+            $table->boolean('jupyter');
             $table->rememberToken();
         });
     }

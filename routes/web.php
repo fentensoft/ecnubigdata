@@ -90,4 +90,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin:4']], functio
         $j = json_decode($res->getBody());
         echo sprintf("%.2f", 100.00 * count($j->cpu_stats->cpu_usage->percpu_usage) * ($j->cpu_stats->cpu_usage->total_usage - $j->precpu_stats->cpu_usage->total_usage) / ($j->cpu_stats->system_cpu_usage - $j->precpu_stats->system_cpu_usage));
     });
+    Route::get('/test', function() {
+        var_dump(App\Http\Controllers\platformController::toggleJupyter(2, false));
+    });
 });

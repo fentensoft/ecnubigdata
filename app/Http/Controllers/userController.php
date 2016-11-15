@@ -15,7 +15,7 @@ class userController extends Controller
         $this->validate($request, [
             'email' => 'required|email|unique:users|max:32',
             'password' => 'required|min:4|max:16',
-            'username' => 'required|alpha_dash|max:32',
+            'username' => 'required|unique:users|alpha_dash|max:32',
             'location' => 'required|max:32'
         ]);
 
@@ -25,17 +25,11 @@ class userController extends Controller
         $user->location = $request['location'];
         $user->class = 1;
         $user->username = $request["username"];
+        $user->rstudio = false;
+        $user->jupyter = false;
 
-    	$user->save();
-
-        exec("docker -H " . getenv("DOCKER_HOST") . " exec rstudio sh /usr/local/bin/add-user " . $request['username'] . " " . $request['password'], $res, $ret);
-        //Add jupyterhub user
-        $client = new Client();
-        $request = new \GuzzleHttp\Psr7\Request('POST', config('app.jupyterhub_host') . "/hub/api/users/" . $request["username"], ['Authorization' => 'token ' . config('app.jupyterhub_token')]);
-        if ($client->send($request)->getStatusCode() == 201 && $ret == 0) {
-            //Add RStudio user
-            \Auth::login($user);
-        }
+    	if ($user->save() && platformController::toggleJupyter($user->id, true) && platformController::addRstudio($request["username"], $request["password"]))
+    	    \Auth::login($user);
 
     	return redirect()->route('dashboard');
     }
