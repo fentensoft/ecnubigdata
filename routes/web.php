@@ -23,11 +23,6 @@ Route::group(['middleware' => 'guest'], function() {
     Route::get('/signin', function() {
         return view('signin');
     })->name('signin');
-    Route::get('/test', function() {
-        $client = new GuzzleHttp\Client();
-        $res = $client->get('http://' . getenv('DOCKER_HOST') . '/containers/rstudio/stats');
-        return $res->getBody();
-    });
 });
 
 Route::group(['middleware' => 'auth'], function() {
@@ -89,4 +84,10 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin:4']], functio
         return view('dashboard.admin');
     })->name('admin');
     Route::get('/deletevideo/{id}', "videoController@deleteVideo")->name('deletevideo');
+    Route::get('/getrstudiocpu', function() {
+        $client = new GuzzleHttp\Client();
+        $res = $client->get('http://' . getenv('DOCKER_HOST') . '/containers/rstudio/stats?stream=0');
+        $j = json_decode($res->getBody());
+        echo sprintf("%.2f", 100.00 * count($j->cpu_stats->cpu_usage->percpu_usage) * ($j->cpu_stats->cpu_usage->total_usage - $j->precpu_stats->cpu_usage->total_usage) / ($j->cpu_stats->system_cpu_usage - $j->precpu_stats->system_cpu_usage));
+    });
 });
