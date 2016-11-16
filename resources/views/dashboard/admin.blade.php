@@ -47,7 +47,7 @@
                         <p>Username: <span id="username">ad</span></p>
                         <p>Email: <span id="email">ad</span></p>
                         <p>Location: <span id="location">ad</span></p>
-                        <p>Rstudio status: <span id="rstudio">ad</span> <button type="button" class="btn btn-default btn-info" data-id="{{$user->id}}">Toggle</button></p>
+                        <p>Rstudio status: <span id="rstudio">ad</span> <button type="button" class="btn btn-default btn-info" data-id="{{$user->id}}" onclick="toggleRstudio(this);">Toggle</button></p>
                         <p>Jupyter status: <span id="jupyter">ad</span> <button type="button" class="btn btn-default btn-info" data-id="{{$user->id}}" onclick="toggleJupyter(this);">Toggle</button></p>
                     </div>
                 </div>
