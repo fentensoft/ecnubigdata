@@ -28,7 +28,7 @@ Route::group(['middleware' => 'guest'], function() {
 Route::group(['middleware' => 'auth'], function() {
     Route::get('/logout', function() {
         Auth::logout();
-        return redirect()->route('home')->withErrors(['notify.info' => 'Logout|Successfully logged out.']);
+        return redirect()->route('home')->withErrors(['notify.success' => 'Logout|Successfully logged out.']);
     })->name('logout');
     Route::get('/dashboard', function() {
         return view('dashboard.dashboard');
@@ -81,7 +81,8 @@ Route::group(['middleware' => ['auth', 'admin:3']], function() {
 
 Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin:4']], function() {
     Route::get('/', function() {
-        return view('dashboard.admin');
+        $users = App\user::paginate(10);
+        return view('dashboard.admin', ['users' => $users]);
     })->name('admin');
     Route::get('/deletevideo/{id}', "videoController@deleteVideo")->name('deletevideo');
     Route::get('/getrstudiocpu', function() {
@@ -90,7 +91,14 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin:4']], functio
         $j = json_decode($res->getBody());
         echo sprintf("%.2f", 100.00 * count($j->cpu_stats->cpu_usage->percpu_usage) * ($j->cpu_stats->cpu_usage->total_usage - $j->precpu_stats->cpu_usage->total_usage) / ($j->cpu_stats->system_cpu_usage - $j->precpu_stats->system_cpu_usage));
     });
-    Route::get('/test', function() {
-        var_dump(App\Http\Controllers\platformController::toggleJupyter(2, false));
+    Route::get('/getuserinfo/{id}', function($id) {
+        $user = App\user::find($id);
+        return $user->toJson();
+    });
+    Route::get('/togglerstudio/{id}', function($id) {
+        return (App\Http\Controllers\platformController::toggleRstudio($id, !((bool) App\user::find($id)->rstudio)) ? 'success' : 'failed');
+    });
+    Route::get('/togglejupyter/{id}', function($id) {
+        return (App\Http\Controllers\platformController::toggleJupyter($id, !((bool) App\user::find($id)->jupyter)) ? 'success' : 'failed');
     });
 });

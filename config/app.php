@@ -229,8 +229,8 @@ return [
 
     ],
 
-    'jupyterhub_host' => 'localhost:8888',
-    'jupyterhub_token' => '8421be09c0494f1284153a37963c7d90',
+    'jupyterhub_host' => '222.204.243.127:8000',
+    'jupyterhub_token' => 'a32f282615814bca9c0d5fdec7c90a11',
     'rstudio_host' => '222.204.243.127:8787',
 
 ];

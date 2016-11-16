@@ -10,4 +10,5 @@ class user extends Model implements Authenticatable
 {
     use HasApiTokens;
     use \Illuminate\Auth\Authenticatable;
+    protected $hidden = ['password', 'remember_token'];
 }
