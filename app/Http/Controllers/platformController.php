@@ -29,7 +29,7 @@ class platformController extends Controller
         $ret = 0;
         if ($userid != 1) {
             $user = user::where('id', $userid);
-            if ($user->rstudio != $isenable) {
+            if ($user->first()->rstudio != $isenable) {
                 if ($isenable) {
                     exec("docker -H " . getenv("DOCKER_HOST") . " exec rstudio usermod -U " . $user->first()->username, $res, $ret);
                 } else {
