@@ -25,10 +25,12 @@ class userController extends Controller
         $user->location = $request['location'];
         $user->class = 1;
         $user->username = $request["username"];
-        $user->rstudio = false;
+        $user->rstudio = true;
         $user->jupyter = false;
-
-    	if ($user->save() && platformController::toggleJupyter($user->id, true) && platformController::addRstudio($request["username"], $request["password"]))
+        $ret = $user->save();
+        $ret = $ret && platformController::addRstudio($request["username"], $request["password"]);
+        $ret = $ret && platformController::toggleRstudio($user->id, false);
+    	if ($ret)
     	    \Auth::login($user);
 
     	return redirect()->route('dashboard');
