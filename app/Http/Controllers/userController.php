@@ -46,4 +46,10 @@ class userController extends Controller
         return redirect()->route('signin')->withErrors(["notify.danger" => "Login|Wrong email or password."]);
     }
 
+    static public function delUser($id) {
+        $ret = platformController::delPlatformUser($id);
+        $ret = $ret && user::find($id)->delete();
+        return $ret;
+    }
+
 }

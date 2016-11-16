@@ -15,6 +15,8 @@
                     <p><h4>{{Auth::user()->username}}</h4></p>
                     <p>Email: {{Auth::user()->email}}</p>
                     <p>Location: {{Auth::user()->location}}</p>
+                    <p>RStudio: {{Auth::user()->rstudio ? 'Enabled' : 'Disabled'}}</p>
+                    <p>Jupyter: {{Auth::user()->jupyter ? 'Enabled' : 'Disabled'}}</p>
                 </div>
             </div>
         </div>

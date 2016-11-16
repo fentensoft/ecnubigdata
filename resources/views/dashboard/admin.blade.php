@@ -24,7 +24,7 @@
                     <td>administrator cannot be edited.</td>
                 @else
                     @if($user->jupyter && $user->rstudio)
-                    <td><button type="button" class="btn btn-default btn-info" onclick="showdetail({{$user->id}});">Detail</button></td>
+                    <td><button type="button" class="btn btn-default btn-success" onclick="showdetail({{$user->id}});">Detail</button></td>
                     @else
                     <td><button type="button" class="btn btn-default btn-primary" onclick="showdetail({{$user->id}});">Detail</button></td>
                     @endif
@@ -52,6 +52,7 @@
                     </div>
                 </div>
                 <div class="modal-footer">
+                    <button type="button" class="btn btn-default btn-danger" onclick="deluser({{$user->id}});">Delete User</button>
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                 </div>
             </div>
@@ -62,6 +63,17 @@
 @section('scripts')
     @include('script')
     <script type="text/javascript">
+        var deluser = function(id) {
+            bootbox.confirm("Are you really want to delete this user permanently?", function(result) {
+                if(result) {
+                    $("#loading").show();
+                    $("#user-detail").hide();
+                    $.get("admin/deleteuser/" + id, function(data) {
+                        location.reload();
+                    });
+                }
+            });
+        }
         var showdetail = function(id) {
             $("#loading").show();
             $("#user-detail").hide();

@@ -101,4 +101,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin:4']], functio
     Route::get('/togglejupyter/{id}', function($id) {
         return (App\Http\Controllers\platformController::toggleJupyter($id, !((bool) App\user::find($id)->jupyter)) ? 'success' : 'failed');
     });
+    Route::get('/deleteuser/{id}', function($id) {
+        return (App\Http\Controllers\userController::delUser($id) ? 'success': 'failed');
+    });
 });
