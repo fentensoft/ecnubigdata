@@ -47,12 +47,12 @@
                         <p>Username: <span id="username">ad</span></p>
                         <p>Email: <span id="email">ad</span></p>
                         <p>Location: <span id="location">ad</span></p>
-                        <p>Rstudio status: <span id="rstudio">ad</span> <button type="button" class="btn btn-default btn-info" data-id="{{$user->id}}" onclick="toggleRstudio(this);">Toggle</button></p>
-                        <p>Jupyter status: <span id="jupyter">ad</span> <button type="button" class="btn btn-default btn-info" data-id="{{$user->id}}" onclick="toggleJupyter(this);">Toggle</button></p>
+                        <p>Rstudio status: <span id="rstudio">ad</span> <button id="rstudiobtn" type="button" class="btn btn-default btn-info" data-id="0" onclick="toggleRstudio(this);">Toggle</button></p>
+                        <p>Jupyter status: <span id="jupyter">ad</span> <button id="jupyterbtn" type="button" class="btn btn-default btn-info" data-id="0" onclick="toggleJupyter(this);">Toggle</button></p>
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default btn-danger" onclick="deluser({{$user->id}});">Delete User</button>
+                    <button id="delbtn" type="button" class="btn btn-default btn-danger" data-id="0" onclick="deluser(this);">Delete User</button>
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                 </div>
             </div>
@@ -63,12 +63,12 @@
 @section('scripts')
     @include('script')
     <script type="text/javascript">
-        var deluser = function(id) {
+        var deluser = function(sender) {
             bootbox.confirm("Are you really want to delete this user permanently?", function(result) {
                 if(result) {
                     $("#loading").show();
                     $("#user-detail").hide();
-                    $.get("admin/deleteuser/" + id, function(data) {
+                    $.get("admin/deleteuser/" + $(sender).attr("data-id"), function(data) {
                         location.reload();
                     });
                 }
@@ -84,6 +84,9 @@
                 $("#location").text(data.location);
                 $("#rstudio").text((data.rstudio ? "Enabled" : "Disabled"));
                 $("#jupyter").text((data.jupyter ? "Enabled" : "Disabled"));
+                $("#rstudiobtn").attr("data-id", id);
+                $("#jupyterbtn").attr("data-id", id);
+                $("#delbtn").attr("data-id", id);
                 $("#loading").hide();
                 $("#user-detail").show();
             });

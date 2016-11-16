@@ -21,7 +21,6 @@ class platformController extends Controller
             exec("docker -H " . getenv("DOCKER_HOST") . " exec rstudio userdel -r " . $user->first()->username, $res, $ret);
             $ret = ($ret == 0) && self::toggleJupyter($userid, false);
             exec("docker -H " . getenv("DOCKER_HOST") . " rm -f jupyter-" . $user->first()->username, $res2, $ret2);
-            $ret = $ret && ($ret2 == 0);
         }
         return $ret;
     }
