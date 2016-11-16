@@ -24,7 +24,7 @@
                     <td>administrator cannot be edited.</td>
                 @else
                     @if($user->jupyter && $user->rstudio)
-                    <td><button type="button" class="btn btn-default btn-info">Detail</button></td>
+                    <td><button type="button" class="btn btn-default btn-info" onclick="showdetail({{$user->id}});">Detail</button></td>
                     @else
                     <td><button type="button" class="btn btn-default btn-primary" onclick="showdetail({{$user->id}});">Detail</button></td>
                     @endif
