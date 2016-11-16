@@ -33,7 +33,7 @@ Route::group(['middleware' => 'auth'], function() {
     Route::get('/dashboard', function() {
         return view('dashboard.dashboard');
     })->name('dashboard');
-    Route::get('/videos', function() {
+    /*Route::get('/videos', function() {
         if (Auth::user()->class <= 2)
             $videos = App\Video::where('published', 1)->paginate(10);
         else
@@ -46,10 +46,10 @@ Route::group(['middleware' => 'auth'], function() {
             return view('dashboard.watchvid', ['video' => $video]);
         else
             return redirect()->route('videos')->withErrors(['notify.error' => 'Watch video|Please present a valid id!']);
-    })->name('watchvid');
+    })->name('watchvid');*/
 });
 
-Route::group(['middleware' => ['auth', 'admin:2']], function() {
+/*Route::group(['middleware' => ['auth', 'admin:2']], function() {
     Route::get('/submitvideo', function() {
         return view('dashboard.submitvideo');
     })->name('submitvideo');
@@ -77,14 +77,14 @@ Route::group(['middleware' => ['auth', 'admin:3']], function() {
     Route::post('/posteditcategory', "categoryController@editCategory")->name('posteditcategory');
     Route::post('/postdelcategory', "categoryController@deleteCategory")->name('postdelcategory');
     Route::post('/postaddcategory', "categoryController@addCategory")->name('postaddcategory');
-});
+});*/
 
 Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin:4']], function() {
     Route::get('/', function() {
         $users = App\user::paginate(10);
         return view('dashboard.admin', ['users' => $users]);
     })->name('admin');
-    Route::get('/deletevideo/{id}', "videoController@deleteVideo")->name('deletevideo');
+    //Route::get('/deletevideo/{id}', "videoController@deleteVideo")->name('deletevideo');
     Route::get('/getrstudiocpu', function() {
         $client = new GuzzleHttp\Client();
         $res = $client->get('http://' . getenv('DOCKER_HOST') . '/containers/rstudio/stats?stream=0');
