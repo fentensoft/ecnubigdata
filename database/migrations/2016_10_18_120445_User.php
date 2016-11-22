@@ -18,8 +18,12 @@ class User extends Migration
             $table->timestamps();
             $table->string('email');
             $table->string('username');
-            $table->string('location');
+            $table->string('realname');
+            $table->string('phone');
+            $table->string('city');
+            $table->string('work');
             $table->string('password');
+            $table->boolean('gender');
             $table->integer('class');
             $table->boolean('rstudio');
             $table->boolean('jupyter');
