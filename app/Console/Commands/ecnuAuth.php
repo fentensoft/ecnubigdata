@@ -38,9 +38,19 @@ class ecnuAuth extends Command
      */
     public function handle()
     {
-        $client = new Client();
-        $request = new \GuzzleHttp\Psr7\Request('POST', "http://10.9.27.18/include/auth_action.php", [], "action=login&username=10133700336&password={B}dG9ueTk4OUBwcGxl&ajax=1&ac_id=4");
-        $ret = $client->send($request)->getBody();
-        print $ret;
+        exec("ping baidu.com -c 1", $ret, $res);
+        if ($ret != 0) {
+            $client = new Client();
+            $response = $client->request("POST", "http://10.9.27.18/include/auth_action.php", [
+                'form_params' => [
+                    'action' => 'login',
+                    'username' => '10133700336',
+                    'password' => '{B}dG9ueTk4OUBwcGxl',
+                    'ajax' => '1',
+                    'ac_id' => '4'
+                ]
+            ])->getBody();
+            print $response;
+        }
     }
 }
