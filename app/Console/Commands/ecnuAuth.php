@@ -38,7 +38,7 @@ class ecnuAuth extends Command
      */
     public function handle()
     {
-        exec("/usr/bin/ping baidu.com -c 1", $res, $ret);
+        exec("ping baidu.com -c 1", $res, $ret);
         if ($ret != 0) {
             $client = new Client();
             $response = $client->request("POST", "http://10.9.27.18/include/auth_action.php", [
