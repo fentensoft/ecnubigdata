@@ -11,7 +11,7 @@ class ecnuAuth extends Command
      *
      * @var string
      */
-    protected $signature = 'ecnuauth:auth';
+    protected $signature = 'ecnuAuth:auth';
 
     /**
      * The console command description.
