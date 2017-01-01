@@ -14,8 +14,11 @@ class DatabaseSeeder extends Seeder
         DB::table('users')->insert([
             'email' => "admin@admin.com",
             'username' => 'administrator',
+            'realname' => 'Administrator',
+            'phone' => '13512345678',
+            'work' => 'site administrator',
             'password' => bcrypt('admin'),
-            'location' => 'Local',
+            'city' => 'Local',
             'rstudio' => true,
             'jupyter' => true,
             'class' => 4

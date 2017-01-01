@@ -23,7 +23,6 @@ class User extends Migration
             $table->string('city');
             $table->string('work');
             $table->string('password');
-            $table->boolean('gender');
             $table->integer('class');
             $table->boolean('rstudio');
             $table->boolean('jupyter');

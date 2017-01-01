@@ -1,7 +1,7 @@
 @extends('master')
 
 @section('title')
-Bigdata Stat
+ShVaD
 @endsection
 
 @section('body')
@@ -12,7 +12,7 @@ Bigdata Stat
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                     <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand" href="#page-top">Bigdata</a>
+                <a class="navbar-brand" href="#page-top">ShVaD</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -42,7 +42,7 @@ Bigdata Stat
                 <div class="col-lg-12">
                     <img class="img-responsive" src="images/logo.png" alt="">
                     <div class="intro-text">
-                        <span class="name">Bigdata</span>
+                        <span class="name">ShVaD@ECNU</span>
                         <hr class="star-light">
                         <span class="skills"></span>
                     </div>
@@ -92,16 +92,8 @@ Bigdata Stat
                 </div>
             </div>
             <div class="row">
-                <div class="col-lg-4 col-lg-offset-2">
-                    <p>Freelancer is a free bootstrap theme created by Start Bootstrap. The download includes the complete source files including HTML, CSS, and JavaScript as well as optional LESS stylesheets for easy customization.</p>
-                </div>
-                <div class="col-lg-4">
-                    <p>Whether you're a student looking to showcase your work, a professional looking to attract clients, or a graphic artist looking to share your projects, this template is the perfect starting point!</p>
-                </div>
-                <div class="col-lg-8 col-lg-offset-2 text-center">
-                    <a href="#" class="btn btn-lg btn-outline">
-                        <i class="fa fa-download"></i> Download Theme
-                    </a>
+                <div class="col-lg-8 col-lg-offset-2">
+                    <p align="justify">As a leading promoter of R and statistical analysis at the age of big data, ShVaD established a training platform to foster data engineers, data analysts and data scientists in the future. It not only provides a unified learning and teaching environent of R and Python, Rstudio server and Hadoop/Cloudera, but also provide well-maintained supplementary slides, videos and data sets. Register VIP trainees have the priority of using ShVaD training videos and get hands-on instructions from ShVaD lecturer team.</p>
                 </div>
             </div>
         </div>
@@ -110,12 +102,12 @@ Bigdata Stat
         <div class="footer-above">
             <div class="container">
                 <div class="row">
-                    <div class="footer-col col-md-4">
+                    <div class="footer-col col-md-6">
                         <h3>Location</h3>
-                        <p>3481 Melrose Place
-                            <br>Beverly Hills, CA 90210</p>
+                        <p>500 Dongchuan Rd
+                            <br>Minhang, Shanghai, China</p>
                     </div>
-                    <div class="footer-col col-md-4">
+                    <div class="footer-col col-md-6">
                         <h3>Around the Web</h3>
                         <ul class="list-inline">
                             <li>
@@ -135,10 +127,6 @@ Bigdata Stat
                             </li>
                         </ul>
                     </div>
-                    <div class="footer-col col-md-4">
-                        <h3>About Freelancer</h3>
-                        <p>Freelance is a free to use, open source Bootstrap theme created by <a href="http://startbootstrap.com">Start Bootstrap</a>.</p>
-                    </div>
                 </div>
             </div>
         </div>
@@ -148,7 +136,7 @@ Bigdata Stat
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12">
-                        Copyright &copy; Bigdata 2016
+                        Copyright &copy; ShVaD 2016
                     </div>
                 </div>
             </div>
@@ -176,21 +164,7 @@ Bigdata Stat
                             <h2>RStudio</h2>
                             <hr class="star-primary">
                             <img src="images/rstudio-web.png" class="img-responsive img-centered" alt="">
-                            <p>Use this area of the page to describe your project. The icon above is part of a free icon set by <a href="https://sellfy.com/p/8Q9P/jV3VZ/">Flat Icons</a>. On their website, you can download their free set with 16 icons, or you can purchase the entire set with 146 icons for only $12!</p>
-                            <ul class="list-inline item-details">
-                                <li>Client:
-                                    <strong><a href="http://startbootstrap.com">Start Bootstrap</a>
-                                    </strong>
-                                </li>
-                                <li>Date:
-                                    <strong><a href="http://startbootstrap.com">April 2014</a>
-                                    </strong>
-                                </li>
-                                <li>Service:
-                                    <strong><a href="http://startbootstrap.com">Web Development</a>
-                                    </strong>
-                                </li>
-                            </ul>
+                            <p align="justify">From RStudio, you can establish R, markdown, RMarkdown and RSweave files to do data analysis as usual or do literate statistical data programming to produce reproducible documents and reports with the help of R, markdown and TeX.</p>
                             <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
                         </div>
                     </div>
@@ -213,21 +187,7 @@ Bigdata Stat
                             <h2>Jupyter Notebook</h2>
                             <hr class="star-primary">
                             <img src="images/jupyter-web.png" class="img-responsive img-centered" alt="">
-                            <p>Use this area of the page to describe your project. The icon above is part of a free icon set by <a href="https://sellfy.com/p/8Q9P/jV3VZ/">Flat Icons</a>. On their website, you can download their free set with 16 icons, or you can purchase the entire set with 146 icons for only $12!</p>
-                            <ul class="list-inline item-details">
-                                <li>Client:
-                                    <strong><a href="http://startbootstrap.com">Start Bootstrap</a>
-                                    </strong>
-                                </li>
-                                <li>Date:
-                                    <strong><a href="http://startbootstrap.com">April 2014</a>
-                                    </strong>
-                                </li>
-                                <li>Service:
-                                    <strong><a href="http://startbootstrap.com">Web Development</a>
-                                    </strong>
-                                </li>
-                            </ul>
+                            <p align="justify">The Jupyteer Notebook is a web application that allows you to create and share documents that contain live code, equations, visualizations and explanatory text. Uses include: data cleaning and transformation, numerical simulation, statistical modeling, machine learning and much more. With the help of Jupyter Notebook, we provide you a combined interactive data science environment either in R or Python.</p>
                             <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
                         </div>
                     </div>

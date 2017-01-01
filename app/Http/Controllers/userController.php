@@ -13,17 +13,23 @@ class userController extends Controller
     public function postSignup(Request $request) {
         $this->validate($request, [
             'email' => 'required|email|unique:users|max:32',
+            'realname' => 'required|max:16',
             'password' => 'required|min:4|max:16',
             'username' => 'required|unique:users|alpha_dash|max:32',
-            'location' => 'required|max:32'
+            'work' => 'required|max:32',
+            'phone' => 'required|numeric|max:20',
+            'city' => 'required|max:32'
         ]);
 
     	$user = new user();
+        $user->username = $request["username"];
+        $user->realname = $request["realname"];
     	$user->email = $request["email"];
     	$user->password = bcrypt($request["password"]);
-        $user->location = $request['location'];
+        $user->city = $request['city'];
+        $user->work = $request['work'];
+        $user->phone = $request['phone'];
         $user->class = 1;
-        $user->username = $request["username"];
         $user->rstudio = true;
         $user->jupyter = false;
         $ret = $user->save();
