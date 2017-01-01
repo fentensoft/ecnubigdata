@@ -17,7 +17,7 @@ class userController extends Controller
             'password' => 'required|min:4|max:16',
             'username' => 'required|unique:users|alpha_dash|max:32',
             'work' => 'required|max:32',
-            'phone' => 'required|numeric|max:20',
+            'phone' => 'required|numeric',
             'city' => 'required|max:32'
         ]);
 
