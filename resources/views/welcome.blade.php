@@ -93,7 +93,7 @@ ShVaD
             </div>
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2">
-                    <p align="justify">As a leading promoter of R and statistical analysis at the age of big data, ShVaD established a training platform to foster data engineers, data analysts and data scientists in the future. It not only provides a unified learning and teaching environent of R and Python, Rstudio server and Hadoop/Cloudera, but also provide well-maintained supplementary slides, videos and data sets. Register VIP trainees have the priority of using ShVaD training videos and get hands-on instructions from ShVaD lecturer team.</p>
+                    <p align="justify">As a leading promoter of R and statistical analysis at the age of big data, ShVaD established a training platform to foster data engineers, data analysts and data scientists in the future. It not only provides a unified learning and teaching environment of R and Python, Rstudio server and Hadoop/Cloudera, but also provide well-maintained supplementary slides, videos and data sets. Registered VIP trainees have the priority of using ShVaD training videos and slides, and obtaining hands-on instructions from the  ShVaD lecturer team.</p>
                 </div>
             </div>
         </div>
