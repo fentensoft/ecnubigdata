@@ -46,7 +46,7 @@
                     <div id="user-detail">
                         <p>Username: <span id="username">ad</span></p>
                         <p>Email: <span id="email">ad</span></p>
-                        <p>Location: <span id="location">ad</span></p>
+                        <p>City: <span id="city">ad</span></p>
                         <p>Rstudio status: <span id="rstudio">ad</span> <button id="rstudiobtn" type="button" class="btn btn-default btn-info" data-id="0" onclick="toggleRstudio(this);">Toggle</button></p>
                         <p>Jupyter status: <span id="jupyter">ad</span> <button id="jupyterbtn" type="button" class="btn btn-default btn-info" data-id="0" onclick="toggleJupyter(this);">Toggle</button></p>
                     </div>
@@ -80,8 +80,9 @@
             $("#myModal").modal();
             $.getJSON("admin/getuserinfo/" + id, function(data) {
                 $("#username").text(data.username);
+                $("#realname").text(data.realname);
                 $("#email").text(data.email);
-                $("#location").text(data.location);
+                $("#city").text(data.city);
                 $("#rstudio").text((data.rstudio ? "Enabled" : "Disabled"));
                 $("#jupyter").text((data.jupyter ? "Enabled" : "Disabled"));
                 $("#rstudiobtn").attr("data-id", id);
